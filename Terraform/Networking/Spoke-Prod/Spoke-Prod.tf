@@ -93,22 +93,18 @@ resource "azurerm_subnet" "WebSubnet" {
   address_prefix            = var.Prod-WebSubnet-AddressPrefix
   resource_group_name       = azurerm_virtual_network.Prod-VNET.resource_group_name
   virtual_network_name      = azurerm_virtual_network.Prod-VNET.name
-  network_security_group_id = azurerm_network_security_group.WebSubnet-NSG.id
-  route_table_id            = azurerm_route_table.AFW-RouteTable.id
 }
 resource "azurerm_subnet" "AppSubnet" {
   name                      = "AppSubnet"
   address_prefix            = var.Prod-AppSubnet-AddressPrefix
   resource_group_name       = azurerm_virtual_network.Prod-VNET.resource_group_name
   virtual_network_name      = azurerm_virtual_network.Prod-VNET.name
-  network_security_group_id = azurerm_network_security_group.AppSubnet-NSG.id
 }
 resource "azurerm_subnet" "DataSubnet" {
   name                      = "DataSubnet"
   address_prefix            = var.Prod-DataSubnet-AddressPrefix
   resource_group_name       = azurerm_virtual_network.Prod-VNET.resource_group_name
   virtual_network_name      = azurerm_virtual_network.Prod-VNET.name
-  network_security_group_id = azurerm_network_security_group.DataSubnet-NSG.id
 }
 
 resource "azurerm_subnet_network_security_group_association" "WebSubnet-NSGAssociation" {

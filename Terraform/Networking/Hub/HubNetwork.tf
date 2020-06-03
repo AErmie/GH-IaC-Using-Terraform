@@ -145,7 +145,6 @@ resource "azurerm_subnet" "DomainControllerSubnet" {
   address_prefix            = var.SharedServices-DomainControllerSubnet-AddressPrefix
   resource_group_name       = azurerm_virtual_network.SharedServicesVNET.resource_group_name
   virtual_network_name      = azurerm_virtual_network.SharedServicesVNET.name
-  network_security_group_id = azurerm_network_security_group.DomainControllerSubnetNSG.id
 }
 
 resource "azurerm_subnet_network_security_group_association" "DomainController-NSGAssociation" {
