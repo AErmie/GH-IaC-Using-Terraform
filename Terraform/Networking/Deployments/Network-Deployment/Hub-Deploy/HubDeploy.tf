@@ -3,7 +3,6 @@ terraform {
   required_version = ">=0.12.0"
   # Backend for configuring remote state files to Azure Storage
   backend "azurerm" {
-    version = ">=2.0.0"
   }
   // backend "remote" {
   //     # The name of your Terraform Cloud organization.
@@ -19,7 +18,7 @@ terraform {
 # Configure the Azure Provider
 provider "azurerm" {
   # While version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
-  version = ">=2.0.0"
+  version = ">= 2.0.0"
   #(Optional) The Subscription ID which should be used. This can also be sourced from the ARM_SUBSCRIPTION_ID Environment Variable.
   subscription_id = var.subscription_id
   #(Optional) The Client ID which should be used. This can also be sourced from the ARM_CLIENT_ID Environment Variable.

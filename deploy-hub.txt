@@ -1,1 +1,1 @@
-Azure Storage remote backend test
+Azure RM provider code correction
