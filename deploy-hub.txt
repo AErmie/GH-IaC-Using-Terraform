@@ -1,1 +1,1 @@
-Modified TFVars file
+Released storage account state lock
