@@ -77,7 +77,15 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init -backend-config=resource_group_name=sa-resource_group -backend-config="storage_account_name=azuredevopssa" -backend-config="container_name=container02-azuredevops" -backend-config="access_key=${{ secrets.SAS_KEY }}" -backend-config="key=tf-statefile-peer.state"
+      run: terraform init -backend-config="resource_group_name=$sa-resource_group" -backend-config="storage_account_name=$storage_accounts" -backend-config="container_name=$blob_storage" -backend-config="access_key=${{ secrets.SAS_KEY }}" -backend-config="key=$state_file"
+      env:
+        subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
+        application_id: "cb8b3e7b-d65c-4307-aa8f-20cc1d5b3498"
+        tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
+        sa-resource_group: "AzureDevOps"
+        storage_accounts: "azuredevopssa"
+        blob_storage: "container02-azuredevops"
+        state_file: "tf-statefile-peer.state"
 
     # Checks that all Terraform configuration files adhere to a canonical format
     # - name: Terraform Format
@@ -85,10 +93,14 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform destroy -var="client_id=cb8b3e7b-d65c-4307-aa8f-20cc1d5b3498" -var="client_secret=${{ secrets.spn_azuredevops_password }}" -var="tenant_id=b033afe0-c9e4-48f6-99d3-d00269efb830" -var="subscription_id=c28db86b-8ce1-4755-aa09-fc99f6e0a667" -var-file="Peering.tfvars" -auto-approve
+      run: terraform destroy -var="client_id=$application_id" -var="client_secret=${{ secrets.spn_azuredevops_password }}" -var="tenant_id=$tenant_id" -var="subscription_id=$subscription_id" -var-file="Peering.tfvars" -auto-approve
       # Error: Saving a generated plan is currently not supported. (So, no -out *.plan file :-( )
       # Error: Run variables are currently not supported. (So, no -var-file='*.tfvars' file :-(, must use *.auto.tfvars instead)
-    
+      env:
+        subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
+        application_id: "cb8b3e7b-d65c-4307-aa8f-20cc1d5b3498"
+        tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
+
       # On push to master, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     # - name: Terraform Apply
