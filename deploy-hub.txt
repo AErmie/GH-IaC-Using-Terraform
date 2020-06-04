@@ -1,1 +1,1 @@
-Azure RM provider code correction
+Modified terraform plan command-line
