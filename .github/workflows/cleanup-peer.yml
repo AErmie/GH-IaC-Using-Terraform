@@ -61,7 +61,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./Terraform/Networking/Deployments/Network-Deployment/Spoke-Deploy
+        working-directory: ./Terraform/Networking/Deployments/Network-Deployment/Peering-Deploy
 
     # Checkout the repository to the GitHub Actions runner
     steps:
