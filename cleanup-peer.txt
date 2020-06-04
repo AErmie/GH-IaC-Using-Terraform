@@ -1,1 +1,1 @@
-Fixed DIR ref
+Auto approve added to destroy command
