@@ -1,1 +1,1 @@
-Auto approve added to destroy command
+Broke storage account lock
