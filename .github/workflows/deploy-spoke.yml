@@ -50,14 +50,9 @@ on:
     branches: [master]
     types: 
       - completed
-
-# on:
-#   push:
-#     branches:
-#     - master
-#     paths:
-#     - 'deploy-spoke.txt'
-#   pull_request:
+  check_run:
+    types: [completed]
+    conclusion: [success]
 
 jobs:
   terraform:
