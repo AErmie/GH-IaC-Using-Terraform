@@ -42,7 +42,7 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Deploy Hub'
+name: 'Deploy Hub VNET'
 
 on:
   push:
@@ -77,13 +77,13 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init -backend-config="resource_group_name=$sa-resource_group" -backend-config="storage_account_name=$storage_accounts" -backend-config="container_name=$blob_storage" -backend-config="access_key=${{ secrets.SAS_KEY }}" -backend-config="key=$state_file"
+      run: terraform init -backend-config="resource_group_name=$sa-resource_group" -backend-config="storage_account_name=$storage_account" -backend-config="container_name=$blob_storage" -backend-config="access_key=${{ secrets.SAS_KEY }}" -backend-config="key=$state_file"
       env:
         subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
         application_id: "cb8b3e7b-d65c-4307-aa8f-20cc1d5b3498"
         tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
         sa-resource_group: "AzureDevOps"
-        storage_accounts: "azuredevopssa"
+        storage_account: "azuredevopssa"
         blob_storage: "container02-azuredevops"
         state_file: "tf-statefile-hub.state"
 

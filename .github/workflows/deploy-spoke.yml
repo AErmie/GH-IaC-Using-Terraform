@@ -42,15 +42,23 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Deploy Spoke'
+name: 'Deploy Spoke VNETs'
 
 on:
-  push:
-    branches:
-    - master
-    paths:
-    - 'deploy-spoke.txt'
-  pull_request:
+  workflow_run:
+    workflows: ["Deploy Hub VNET"]
+    branches: [master]
+    types: 
+      - completed
+      - requested
+
+# on:
+#   push:
+#     branches:
+#     - master
+#     paths:
+#     - 'deploy-spoke.txt'
+#   pull_request:
 
 jobs:
   terraform:

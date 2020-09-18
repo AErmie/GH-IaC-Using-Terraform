@@ -42,15 +42,23 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Deploy Peering'
+name: 'Deploy VNET Peering'
 
 on:
-  push:
-    branches:
-    - master
-    paths:
-    - 'deploy-peer.txt'
-  pull_request:
+  workflow_run:
+    workflows: ["Deploy Spoke VNETs"]
+    branches: [master]
+    types: 
+      - completed
+      - requested
+
+# on:
+#   push:
+#     branches:
+#     - master
+#     paths:
+#     - 'deploy-peer.txt'
+#   pull_request:
 
 jobs:
   terraform:
