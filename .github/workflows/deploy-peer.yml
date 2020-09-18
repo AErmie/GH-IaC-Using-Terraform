@@ -88,7 +88,7 @@ jobs:
       run: terraform init -backend-config="resource_group_name=$sa-resource_group" -backend-config="storage_account_name=$storage_accounts" -backend-config="container_name=$blob_storage" -backend-config="access_key=${{ secrets.SAS_KEY }}" -backend-config="key=$state_file"
       env:
         subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
-        application_id: "cb8b3e7b-d65c-4307-aa8f-20cc1d5b3498"
+        application_id: "12c58cc6-53c7-4a2f-bcbc-05ab4e794ebd"
         tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
         sa-resource_group: "AzureDevOps"
         storage_accounts: "azuredevopssa"
@@ -106,7 +106,7 @@ jobs:
       # Error: Run variables are currently not supported. (So, no -var-file='*.tfvars' file :-(, must use *.auto.tfvars instead)
       env:
         subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
-        application_id: "cb8b3e7b-d65c-4307-aa8f-20cc1d5b3498"
+        application_id: "12c58cc6-53c7-4a2f-bcbc-05ab4e794ebd"
         tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
       
       # On push to master, build or change infrastructure according to Terraform configuration files
