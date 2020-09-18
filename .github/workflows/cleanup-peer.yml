@@ -51,6 +51,7 @@ on:
     paths:
     - 'cleanup-peer.txt'
   pull_request:
+  workflow_dispatch:
 
 jobs:
   terraform:
