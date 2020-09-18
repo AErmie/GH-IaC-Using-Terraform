@@ -55,7 +55,7 @@ on:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Cleanup Spoke VNETs'
     runs-on: ubuntu-latest
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -93,7 +93,7 @@ jobs:
     #   run: terraform fmt -check
 
     # Generates an execution plan for Terraform
-    - name: Terraform Plan
+    - name: Terraform Destroy
       run: terraform destroy -var="client_id=$application_id" -var="client_secret=${{ secrets.spn_azuredevops_password }}" -var="tenant_id=$tenant_id" -var="subscription_id=$subscription_id" -var-file="Spoke.tfvars" -auto-approve
       # Error: Saving a generated plan is currently not supported. (So, no -out *.plan file :-( )
       # Error: Run variables are currently not supported. (So, no -var-file='*.tfvars' file :-(, must use *.auto.tfvars instead)
