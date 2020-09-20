@@ -50,9 +50,7 @@ on:
     branches: [master]
     types: 
       - completed
-    check_run:
-      types: [completed]
-      conclusion: [success]
+    conclusion: [success]
 
 jobs:
   terraform:
