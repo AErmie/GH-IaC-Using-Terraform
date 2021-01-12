@@ -83,9 +83,9 @@ jobs:
         subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
         application_id: "12c58cc6-53c7-4a2f-bcbc-05ab4e794ebd"
         tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
-        sa-resource_group: "AzureDevOps"
-        storage_accounts: "azuredevopssa"
-        blob_storage: "container02-azuredevops"
+        sa-resource_group: "GH-IaC-Using-Terraform"
+        storage_accounts: "ghiacusingterraform"
+        blob_storage: "tfstate"
         state_file: "tf-statefile-peer.state"
 
     # Checks that all Terraform configuration files adhere to a canonical format
@@ -140,9 +140,9 @@ jobs:
         subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
         application_id: "12c58cc6-53c7-4a2f-bcbc-05ab4e794ebd"
         tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
-        sa-resource_group: "AzureDevOps"
-        storage_accounts: "azuredevopssa"
-        blob_storage: "container02-azuredevops"
+        sa-resource_group: "GH-IaC-Using-Terraform"
+        storage_accounts: "ghiacusingterraform"
+        blob_storage: "tfstate"
         state_file: "tf-statefile-spoke.state"
 
     # Checks that all Terraform configuration files adhere to a canonical format
@@ -197,9 +197,9 @@ jobs:
         subscription_id: "c28db86b-8ce1-4755-aa09-fc99f6e0a667"
         application_id: "12c58cc6-53c7-4a2f-bcbc-05ab4e794ebd"
         tenant_id: "b033afe0-c9e4-48f6-99d3-d00269efb830"
-        sa-resource_group: "AzureDevOps"
-        storage_accounts: "azuredevopssa"
-        blob_storage: "container02-azuredevops"
+        sa-resource_group: "GH-IaC-Using-Terraform"
+        storage_accounts: "ghiacusingterraform"
+        blob_storage: "tfstate"
         state_file: "tf-statefile-hub.state"
 
     # Checks that all Terraform configuration files adhere to a canonical format
